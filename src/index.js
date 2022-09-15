@@ -7,10 +7,11 @@ import {applyMiddleware, createStore} from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './modules';
 import myLogger from "./middlewares/myLogger";
+import logger from 'redux-logger';
 
 
 // applyMiddleware()를 통해 미들웨어를 적용시킴
-const store = createStore(rootReducer,applyMiddleware(myLogger));
+const store = createStore(rootReducer,applyMiddleware(logger));  // 여러 개의 미들웨어를 적용할 수 있습니다.
 
 ReactDOM.render(
     <Provider store={store}>
